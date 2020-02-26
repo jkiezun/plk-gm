@@ -1,0 +1,17 @@
+{% extends "fantasy/base.html" %}
+{% load staticfiles %}
+
+{% block title_block %}
+    <title>Login</title>
+{% endblock %}
+
+{% block body_block %}
+    <h1> Login to PLKGM </h1>
+    <form id="login_form" method="post" action="{% url 'fantasy:login' %}">
+        {% csrf_token %}
+        Username: <input type="text" name="username" value="" size="50" />
+        <br>
+        Password: <input type="password" name="password" value="" size="50" />
+        <input type="submit" value="submit"/>
+    </form>
+{% endblock %}

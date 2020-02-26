@@ -1,0 +1,49 @@
+.players-table-wrapper {
+	height: 300px;
+	overflow-y: scroll;
+	width: 70%;
+	border-bottom-style: solid;
+}
+.left-align {
+	text-align: left;
+}
+.players-table td {
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.players-table th {
+	overflow: hidden;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.players-table th:nth-of-type(1) {
+	overflow: hidden;
+	text-align: left;
+	vertical-align: middle;
+}
+.players-table th:nth-of-type(2) {
+	overflow: hidden;
+	text-align: left;
+	vertical-align: middle;
+}
+.players-table td:nth-of-type(1) {
+	width: 20%;
+	text-align: left;
+}
+.players-table td:nth-of-type(2) {
+	width: 20%;
+	text-align: left;
+}
+.players-table td:nth-of-type(3) {
+	width: 10%;
+}
+#club-filter {
+	margin-top: 10px;
+}
+
+.table-button {
+	margin-top: 2px;
+}

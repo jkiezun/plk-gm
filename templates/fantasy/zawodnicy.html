@@ -1,0 +1,27 @@
+{% extends 'fantasy/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+  <title>Zawodnicy</title>
+{% endblock %}
+
+{% block body_block %}
+    <table style="width:100%" class = "table">
+        <tr>
+            <th> Numer </th>
+            <th> Imię </th>
+            <th> Nazwisko </th>
+            <th> Klub </th>
+            <th> Pozycja </th>
+        </tr>
+    {% for player in players %}
+        <tr>
+            <td> {{ player.number }} </td>
+            <td> {{ player.first_name }} </td>
+            <td> {{ player.last_name }} </td>
+            <td> {{ player.RealClub }} </td>
+            <td> {{ player.position }} </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
