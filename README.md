@@ -9,10 +9,10 @@ Backed uses Python Django framework. Frontend uses pure Javascript. Most of the 
 
 ### Requirements
 
-Django
-Pandas
-requests
-BeautifulSoup
+Django  
+Pandas  
+requests  
+BeautifulSoup  
 (Pandas, requests and BeautifulSoup are used to scrape and prepare the data)
 
 ### Running the app
