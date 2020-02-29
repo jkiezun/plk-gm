@@ -5,7 +5,7 @@ import re
 from fantasy.models import PlayerStat, Player, Club, Game
 
 
-def add_stats_by_id(game_id):
+def add_stats_by_game_id(game_id):
     if not Game.objects.filter(game_id=game_id):
         res = requests.get("http://www.plk.pl/mecz/" + str(game_id) + "/")
 
