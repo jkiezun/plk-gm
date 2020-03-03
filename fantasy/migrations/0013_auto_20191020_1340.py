@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             field=models.ManyToManyField(through='fantasy.ClubMember', to='fantasy.Club')
         ),
         migrations.AddField(
-            model_name='clubmember',
+            model_name='ClubMember',
             name='player',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='fantasy.Player'),
         ),

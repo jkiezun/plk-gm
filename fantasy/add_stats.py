@@ -5,7 +5,7 @@ import re
 from fantasy.models import PlayerStat, Player, Club, Game
 
 
-def add_stats_by_id(game_id):
+def add_stats_by_game_id(game_id):
     if not Game.objects.filter(game_id=game_id):
         res = requests.get("http://www.plk.pl/mecz/" + str(game_id) + "/")
 
@@ -63,7 +63,7 @@ def add_stats_by_id(game_id):
             soup = BeautifulSoup(doc)
             opponents = soup.select('.hedpunc a')
             kolejka = soup.select('.mecz a')[2].getText()
-            kolejka = re.search('[0-9]', kolejka).group()
+            kolejka = re.findall('\d+', kolejka)[0]
             df['round'] = kolejka
             df['opp'] = opponents[not x].getText()
 
@@ -75,6 +75,7 @@ def add_stats_by_id(game_id):
             cols.remove('opp')
             df[cols] = df[cols].apply(pd.to_numeric, errors='coerce')
 
+            row_count = 0
             # add stats to database
             for index, row in df.iterrows():
                 if Player.objects.filter(first_name=row['first_name'], last_name=row['last_name']):
@@ -109,7 +110,8 @@ def add_stats_by_id(game_id):
                     opponent=tmp_opponent
                 )
                 print(row['last_name'])
+                row_count = row_count + 1
         Game.objects.create(game_id=game_id)
-        return 1  # game stats added
+        return row_count  # row_count stats added
     else:
-        return 0  # game stats already in database
+        return 0  # game stats already in database, 0 stats added

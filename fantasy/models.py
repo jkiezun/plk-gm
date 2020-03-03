@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.core.exceptions import NON_FIELD_ERRORS, ValidationError
 # Create your models here.
 
 
@@ -25,6 +25,7 @@ class Club(models.Model):
 
     def __str__(self):
         return self.name
+
 
 
 class Player(models.Model):

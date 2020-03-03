@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
             name='region',
         ),
         migrations.RemoveField(
-            model_name='clubmember',
+            model_name='ClubMember',
             name='club',
         ),
         migrations.RemoveField(
@@ -74,7 +74,7 @@ class Migration(migrations.Migration):
             field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='fantasy.UserProfile'),
         ),
         migrations.AddField(
-            model_name='clubmember',
+            model_name='ClubMember',
             name='fantasy_club',
             field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='fantasy.FantasyClub'),
             preserve_default=False,

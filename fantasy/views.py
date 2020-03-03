@@ -6,10 +6,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from .add_stats import add_stats_by_id
+from .add_stats import add_stats_by_game_id
 from bs4 import BeautifulSoup
 import requests
 from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -93,7 +94,7 @@ def update_stats_view(request):
             success = 1
             for game in played_games:
                 game_id = game['data-game']
-                success = add_stats_by_id(game_id)
+                success = add_stats_by_game_id(game_id)
             if success:
                 return render(request, 'admin/fantasy/addstats.html', {'result': 'Success!'})
             else:
@@ -122,4 +123,12 @@ def get_players(request):
         data = serializers.serialize("json", Player.objects.all())
         return JsonResponse(data, safe=False)
     else:
-        redirect('/index')
+        return redirect('/index')
+
+@csrf_exempt
+def create_fantasy_club(request):
+    if request.method == "GET":
+        return redirect('/')
+    elif request.method == "POST":
+        data = request.body
+        print(data)

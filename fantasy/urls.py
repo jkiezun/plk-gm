@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('zawodnicy/', views.show_players, name='zawodnicy'),
     path('players/', views.get_players, name='players'),
+    path('testing', views.create_fantasy_club, name='create-fantasy-club')
 ]
