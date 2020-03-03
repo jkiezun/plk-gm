@@ -110,7 +110,7 @@ def add_stats_view(request):
     if request.user.is_superuser:
         if request.method == 'POST':
             game_id = request.POST['match_id']
-            success = add_stats_by_id(game_id)
+            success = add_stats_by_game_id(game_id)
             return render(request, 'admin/fantasy/addstats.html', {'result': success})
         elif request.method == 'GET':
             return redirect('/admin/fantasy')
