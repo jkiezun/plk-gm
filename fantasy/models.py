@@ -21,7 +21,7 @@ class FantasyClub(models.Model):
 
 
 class Club(models.Model):
-    name = models.CharField(max_length=35)
+    name = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name
