@@ -10,6 +10,7 @@ Backed uses Python Django framework. Frontend uses pure Javascript. Most of the 
 ### Requirements
 
 Django  
+Django Rest Framework  
 Pandas  
 requests  
 BeautifulSoup  
