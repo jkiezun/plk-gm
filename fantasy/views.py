@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from fantasy.forms import UserForm
-from fantasy.models import Player, PlayerStat, Club
+from fantasy.models import Player, PlayerStat, Club, FantasyClub
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.shortcuts import redirect
@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import requests
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from fantasy.serializers import PlayerSerializer, ClubSerializer
+from fantasy.serializers import PlayerSerializer, ClubSerializer, FantasyClubSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -80,6 +80,11 @@ def restricted(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse("fantasy:index"))
+
+
+class FantasyClubList(generics.ListCreateAPIView):
+    queryset = FantasyClub.objects.all()
+    serializer_class = FantasyClubSerializer
 
 
 class ClubList(generics.ListAPIView):
