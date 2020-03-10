@@ -1,0 +1,21 @@
+from fantasy.models import Club
+
+Club.objects.create(name="Asseco Arka Gdynia")
+Club.objects.create(name="Stelmet Enea BC Zielona Góra")
+Club.objects.create(name="Anwil Włocławek")
+Club.objects.create(name="Start Lublin")
+Club.objects.create(name="Polski Cukier Toruń")
+Club.objects.create(name="Trefl Sopot")
+Club.objects.create(name="WKS Śląsk Wrocław")
+Club.objects.create(name="King Szczecin")
+Club.objects.create(name="BM Slam Stal Ostrów Wlkp.")
+Club.objects.create(name="PGE Spójnia Stargard")
+Club.objects.create(name="Enea Astoria Bydgoszcz")
+Club.objects.create(name="HydroTruck Radom")
+Club.objects.create(name="GTK Gliwice")
+Club.objects.create(name="Legia Warszawa")
+Club.objects.create(name="Polpharma Starogard Gdański")
+Club.objects.create(name="MKS Dąbrowa Górnicza")
+Club.objects.create(name="1liga")
+
+print('Populating clubs done')
