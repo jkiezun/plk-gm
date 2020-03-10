@@ -11,6 +11,12 @@ from bs4 import BeautifulSoup
 import requests
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+from fantasy.serializers import PlayerSerializer
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework import generics
 # Create your views here.
 
 
@@ -77,12 +83,13 @@ def user_logout(request):
     return redirect(reverse('fantasy:index'))
 
 
-def show_players(request):
-    context = {
-        'players': Player.objects.all()
-    }
-    return render(request, "fantasy/zawodnicy.html", context)
-
+class PlayerList(generics.ListCreateAPIView):
+    queryset = Player.objects.all()
+    serializer_class = PlayerSerializer
+    
+class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Player.objects.all()
+    serializer_class = PlayerSerializer
 
 def update_stats_view(request):
     if request.user.is_superuser:

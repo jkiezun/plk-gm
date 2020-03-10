@@ -9,7 +9,7 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('restricted/', views.restricted, name='restricted'),
     path('logout/', views.user_logout, name='logout'),
-    path('zawodnicy/', views.show_players, name='zawodnicy'),
-    path('players/', views.get_players, name='players'),
+    path('players/', views.PlayerList.as_view(), name='players'),
+    path('players/<int:pk>', views.PlayerDetail.as_view()),
     path('testing', views.create_fantasy_club, name='create-fantasy-club')
 ]
